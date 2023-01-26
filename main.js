@@ -253,3 +253,31 @@ function noSpace(x){
 }
 
 noSpace('8 j 8   mBliB8g  imjB8B8  jl  B')
+
+/*
+Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and above with '1'. Return the resulting string.
+
+Note: input will never be an empty string
+*/
+
+function fakeBin(x){
+    let array = []
+    for(let i = 0; i < x.length; i++){
+        let a = x.slice([i], [i + 1])
+        array.push(a)
+    }
+    array.map(elem =>{
+        let index = array.indexOf(elem)
+        if(elem >= 5){
+            array[index] = 1
+        }
+        if(elem < 5){
+            array[index] = 0
+        }
+    })
+    let string = String(array)
+    let newString = string.replaceAll(",", "")
+    return newString
+}
+
+fakeBin('45385593107843568')
