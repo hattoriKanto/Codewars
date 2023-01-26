@@ -141,11 +141,115 @@ function positiveSum(arr){
                 sum += arr[i]
             }
         }
-    } else{
-        sum = 0
     }
-    console.log(sum)
     return sum
 }
 
-positiveSum([1,2,3,4,5])
+positiveSum([])
+
+/*
+Write a function which calculates the average of the numbers in a given list.
+
+Note: Empty arrays should return 0.
+*/
+
+function findAverage(arr){
+    let sum = 0;
+    let average = 0;
+    if(arr.length > 0){
+        for(let i = 0; i < arr.length; i++){
+            sum += arr[i];
+        }
+        average = sum / arr.length;
+    }
+    return average;
+}
+
+findAverage([])
+
+/*
+Write function bmi that calculates body mass index (bmi = weight / height2).
+
+if bmi <= 18.5 return "Underweight"
+
+if bmi <= 25.0 return "Normal"
+
+if bmi <= 30.0 return "Overweight"
+
+if bmi > 30 return "Obese"
+*/
+
+function bmi(weight, height) {
+    let bmi = weight / Math.pow(height, 2);
+    if(bmi <= 18.5){
+        return "Underweight"
+    }
+
+    if(bmi <= 25.0){
+        return "Normal"
+    }
+
+    if(bmi <= 30.0){
+        return "Overweight"
+    }
+
+    if(bmi > 30){
+        return "Obese"
+    }
+}
+
+bmi(72, 1.86) // kg and m
+
+/*
+Create a function that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers. 
+*/
+
+function evenOrOdd(number) {
+    if(number % 2 === 0){
+        return "Even"
+    }
+    if(number % 2 != 0){
+        return "Odd"
+    }
+}
+
+evenOrOdd(14)
+
+/*
+Very simple, given an integer or a floating-point number, find its opposite.
+
+Examples:
+
+1: -1
+14: -14
+-34: 34
+*/
+
+function opposite(number) {
+    let b;
+    if(number === 0){
+        b = Number(number)
+    } else if(number < 0){
+        let a = String(number)
+        let c = a.substring(1)
+        b = Number(c)
+    } else{
+        let a = '-' + number
+        b = Number(a)
+    }
+    console.log(b)
+    console.log(typeof(b))
+}
+
+opposite(-12525220.3325)
+
+/*
+Simple, remove the spaces from the string, then return the resultant string.
+*/
+
+function noSpace(x){
+    let a = x.replaceAll(" ","");
+    return a
+}
+
+noSpace('8 j 8   mBliB8g  imjB8B8  jl  B')
