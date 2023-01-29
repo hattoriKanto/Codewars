@@ -340,21 +340,41 @@ Numerical Score 	Letter Grade
 function getGrade (s1, s2, s3) {
     let sum = s1 + s2 + s3
     let aver = sum / 3
-    if(0 <= aver && aver < 60){
+    if(aver < 60){
         return 'F'
     }
-    else if(60 <= aver && aver < 70){
+    else if(aver < 70){
         return 'D'
     }
-    else if(70 <= aver && aver < 80){
+    else if(aver < 80){
         return 'C'
     }
-    else if(80 <= aver && aver < 90){
+    else if(aver < 90){
         return 'B'
     }
-    else if(90 <= aver && aver <= 100){
+    else if(aver <= 100){
         return 'A'
     }
 }
 
 getGrade(100, 100, 100)
+
+/*
+It's pretty straightforward. Your goal is to create a function that removes the first and last characters of a string. You're given one parameter, the original string. You don't have to worry with strings with less than two characters. 
+*/
+
+function removeChar(str){
+   return str.slice(1, -1)
+};
+
+removeChar('person')
+
+/*
+Write a function which converts the input string to uppercase.
+*/
+
+function makeUpperCase(str) {
+    return str.toUpperCase()
+}
+
+makeUpperCase('hello')
