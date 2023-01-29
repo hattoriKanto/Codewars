@@ -281,3 +281,34 @@ function fakeBin(x){
 }
 
 fakeBin('45385593107843568')
+
+/* 
+Write a function that takes an array of words and smashes them together into a sentence and returns the sentence. You can ignore any need to sanitize words or add punctuation, but you should add spaces between each word. Be careful, there shouldn't be a space at the beginning or the end of the sentence!
+*/
+
+function smash(words){
+    let convert = String(words)
+    let str = convert.replaceAll(',', ' ')
+    return str
+}
+
+smash(['hello', 'world', 'this', 'is', 'great'])
+
+/*
+Deoxyribonucleic acid, DNA is the primary information storage molecule in biological systems. It is composed of four nucleic acid bases Guanine ('G'), Cytosine ('C'), Adenine ('A'), and Thymine ('T').
+
+Ribonucleic acid, RNA, is the primary messenger molecule in cells. RNA differs slightly from DNA its chemical structure and contains no Thymine. In RNA Thymine is replaced by another nucleic acid Uracil ('U').
+
+Create a function which translates a given DNA string into RNA.
+
+For example:
+
+"GCAT"  =>  "GCAU"
+*/
+
+function DNAtoRNA(dna){
+    let rna = dna.replaceAll('T', 'U')
+    console.log(rna)
+}
+
+DNAtoRNA('GCAT')
