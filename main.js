@@ -312,3 +312,49 @@ function DNAtoRNA(dna){
 }
 
 DNAtoRNA('GCAT')
+
+/*
+Given a non-negative integer, 3 for example, return a string with a murmur: "1 sheep...2 sheep...3 sheep...". Input will always be valid, i.e. no negative integers.
+ */
+
+var countSheep = function (num){
+    let str = ''
+    for(let i = 0; i < num; i++ ){
+       str += `${i+1} sheep...`
+    }
+    return str
+}
+
+countSheep(5)
+
+/*
+Complete the function so that it finds the average of the three scores passed to it and returns the letter value associated with that grade.
+Numerical Score 	Letter Grade
+90 <= score <= 100 	'A'
+80 <= score < 90 	'B'
+70 <= score < 80 	'C'
+60 <= score < 70 	'D'
+0 <= score < 60 	'F' 
+*/
+
+function getGrade (s1, s2, s3) {
+    let sum = s1 + s2 + s3
+    let aver = sum / 3
+    if(0 <= aver && aver < 60){
+        return 'F'
+    }
+    else if(60 <= aver && aver < 70){
+        return 'D'
+    }
+    else if(70 <= aver && aver < 80){
+        return 'C'
+    }
+    else if(80 <= aver && aver < 90){
+        return 'B'
+    }
+    else if(90 <= aver && aver <= 100){
+        return 'A'
+    }
+}
+
+getGrade(100, 100, 100)
