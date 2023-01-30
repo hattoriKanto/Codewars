@@ -378,3 +378,70 @@ function makeUpperCase(str) {
 }
 
 makeUpperCase('hello')
+
+/*
+Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
+
+The output should be two capital letters with a dot separating them.
+
+It should look like this:
+
+Sam Harris => S.H
+
+patrick feeney => P.F
+*/
+
+function abbrevName(name){
+    let lastName = '';
+    for(let i = 0; i < name.length; i++){
+        if(name[i] === ' '){
+            lastName = name[i + 1]
+        }
+    }
+    let firstNAme = name.slice(0 , 1)
+    let initials = firstNAme + '.' + lastName
+    console.log(initials.toUpperCase())
+    return initials.toUpperCase()
+}
+
+abbrevName('patrick batman')
+
+/*
+We need a function that can transform a number (integer) into a string.
+
+What ways of achieving this do you know?
+Examples (input --> output):
+
+123  --> "123"
+999  --> "999"
+-100 --> "-100"
+*/
+
+function numberToString(num) {
+    return String(num)
+}
+
+numberToString(-100)
+
+/*
+Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
+
+For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1. (81-1-1-81)
+
+Example #2: An input of 765 will/should return 493625 because 72 is 49, 62 is 36, and 52 is 25. (49-36-35)
+
+Note: The function accepts an integer and returns an integer. 
+*/
+
+function squareDigits(num){
+    let str = String(num)
+    let newStr = ''
+    for(let i = 0; i < str.length; i++){
+        let number = Number(str[i])
+        newStr += Math.pow(number, 2)
+    }
+    let newNum = Number(newStr)
+    return newNum
+}
+
+squareDigits(756)
