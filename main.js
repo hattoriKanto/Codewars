@@ -445,3 +445,62 @@ function squareDigits(num){
 }
 
 squareDigits(756)
+
+/* 
+Write a function that takes an array of numbers and returns the sum of the numbers. The numbers can be negative or non-integer. If the array does not contain any numbers then you should return 0.
+Examples
+
+Input: [1, 5.2, 4, 0, -1]
+Output: 9.2
+
+Input: []
+Output: 0
+
+Input: [-2.398]
+Output: -2.398
+Assumptions
+
+You can assume that you are only given numbers.
+You cannot assume the size of the array.
+You can assume that you do get an array and if the array is empty, return 0.
+*/
+
+function sum (numbers) {
+    "use strict"
+    let sum = 0
+    for(let i = 0; i < numbers.length; i++){
+        sum += numbers[i]
+    }
+    return sum
+};
+
+sum([1])
+
+/* 
+Write function RemoveExclamationMarks which removes all exclamation marks from a given string.
+*/
+
+function removeExclamationMarks(s) {
+    return s.replaceAll('!', '')
+}
+
+removeExclamationMarks('!hello! world!')
+
+/* 
+Given an array of integers as strings and numbers, return the sum of the array values as if all were numbers.
+
+Return your answer as a number.
+*/
+
+function sumMix(x){
+    let sum = 0
+    for(let i = 0; i < x.length; i++){
+        if(typeof(x[i]) != 'number'){
+            x[i] = Number(x[i])
+        }
+        sum += x[i]
+    }
+    console.log(sum)
+}
+
+sumMix([9, 3, '7', '3'])
