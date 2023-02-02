@@ -504,3 +504,96 @@ function sumMix(x){
 }
 
 sumMix([9, 3, '7', '3'])
+
+/* 
+Create a function which answers the question "Are you playing banjo?".
+If your name starts with the letter "R" or lower case "r", you are playing banjo!
+
+The function takes a name as its only argument, and returns one of the following strings:
+
+name + " plays banjo" 
+name + " does not play banjo"
+
+Names given are always valid strings.
+*/
+
+function areYouPlayingBanjo(name) {
+    if(name.charAt(0) === 'R' || name.charAt(0) === 'r'){
+        return name + " plays banjo" 
+    } else{
+        return name + " does not play banjo"
+    }
+}
+
+areYouPlayingBanjo('Podrigo')
+
+/* 
+Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
+
+Examples input/output:
+
+XO("ooxx") => true
+XO("xooxx") => false
+XO("ooxXm") => true
+XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+XO("zzoo") => false
+*/
+
+function XO(str) {
+    let cntX = 0
+    let cntO = 0
+    for(let i = 0; i < str.length; i++){
+        if(str[i] === 'o' || str[i] === 'O'){
+            cntO++
+        }
+        if(str[i] === 'x' || str[i] === 'X'){
+            cntX++
+        }
+    }
+    if(cntX === cntO){
+        return true
+    } else{
+        return false
+    }
+}
+
+XO("zzoo")
+
+/* 
+Write a function that takes a string of parentheses, and determines if the order of the parentheses is valid. The function should return true if the string is valid, and false if it's invalid.
+Examples
+
+"()"              =>  true
+")(()))"          =>  false
+"("               =>  false
+"(())((()())())"  =>  true
+
+Constraints
+
+0 <= input.length <= 100
+*/
+
+function validParentheses(parens) {
+    if(parens[0] === ')' || parens[parens.length - 1] === '('){
+        return false
+    }
+    let cntX = 0
+    let cntY = 0
+    for(let i = 0; i < parens.length; i++){
+        if(parens[i] === '('){
+            cntX++
+        }
+        if(parens[i] === ')'){
+            cntY++
+        }
+        if(cntY > cntX){
+            break
+        }
+    }
+    if(cntY === cntX){
+        return true
+    }
+    return false
+}
+
+validParentheses("())(()")
