@@ -597,3 +597,81 @@ function validParentheses(parens) {
 }
 
 validParentheses("())(()")
+
+/* 
+Convert number to reversed array of digits
+
+Given a random non-negative number, you have to return the digits of this number within an array in reverse order.
+Example(Input => Output):
+
+35231 => [1,3,2,5,3]
+0 => [0]
+*/
+
+function digitize(n) {
+    let str = String(n)
+    let arr = str.split('')
+    arr.reverse()
+    for(let i = 0; i < arr.length; i++){
+        arr[i] = Number(arr[i])
+    }
+    return arr
+}
+
+digitize(35231)
+
+/* 
+Given two integers a and b, which can be positive or negative, find the sum of all the integers between and including them and return it. If the two numbers are equal return a or b.
+
+Note: a and b are not ordered!
+Examples (a, b) --> output (explanation)
+
+(1, 0) --> 1 (1 + 0 = 1)
+(1, 2) --> 3 (1 + 2 = 3)
+(0, 1) --> 1 (0 + 1 = 1)
+(1, 1) --> 1 (1 since both are same)
+(-1, 0) --> -1 (-1 + 0 = -1)
+(-1, 2) --> 2 (-1 + 0 + 1 + 2 = 2)
+
+Your function should only return a number, not the explanation about how you get that number.
+*/
+
+function getSum(a, b){
+    let sum = 0
+    if(b < a){
+        for(let i = b; i <= a; i++){
+            sum += i
+            console.log(i)
+            console.log(`Sum: ${sum}`)
+        }
+    }
+    for(let i = a; i <= b; i++){
+        sum += i
+        console.log(i)
+        console.log(`Sum: ${sum}`)
+    }
+    return sum
+}
+
+getSum(5, -2)
+
+
+function findEvenIndex(arr)
+{
+    let sumX = 0
+    let sumY = 0
+    for(let i = 0, j = arr.length - 1; i < arr.length, j >= 0; i++, j--){
+        sumX += arr[i]
+        sumY += arr[j]
+        if(sumX < sumY){
+            continue 
+        }
+        if(sumY < sumX){
+            continue 
+        }
+        console.log(`SumX на ${i} индексе: ${sumX}`)
+        console.log(`SumY на ${j} индексе: ${sumY}`)
+    }
+}
+
+findEvenIndex([1,100,50,-51,1,1])
