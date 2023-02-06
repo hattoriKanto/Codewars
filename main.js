@@ -655,23 +655,34 @@ function getSum(a, b){
 
 getSum(5, -2)
 
+/* 
+You probably know the "like" system from Facebook and other pages. People can "like" blog posts, pictures or other items. We want to create the text that should be displayed next to such an item.
 
-function findEvenIndex(arr)
-{
-    let sumX = 0
-    let sumY = 0
-    for(let i = 0, j = arr.length - 1; i < arr.length, j >= 0; i++, j--){
-        sumX += arr[i]
-        sumY += arr[j]
-        if(sumX < sumY){
-            continue 
-        }
-        if(sumY < sumX){
-            continue 
-        }
-        console.log(`SumX на ${i} индексе: ${sumX}`)
-        console.log(`SumY на ${j} индексе: ${sumY}`)
+Implement the function which takes an array containing the names of people that like an item. It must return the display text as shown in the examples:
+
+[]                                -->  "no one likes this"
+["Peter"]                         -->  "Peter likes this"
+["Jacob", "Alex"]                 -->  "Jacob and Alex like this"
+["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
+["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
+
+Note: For 4 or more names, the number in "and 2 others" simply increases.
+*/
+
+function likes(names) {
+    if(names.length === 0){
+        return console.log('no one likes this')
     }
+    if(names.length === 1){
+        return console.log(`${names[0]} likes this`)
+    }
+    if(names.length === 2){
+        return console.log(`${names[0]} and ${names[1]} like this`)
+    }
+    if(names.length === 3){
+        return console.log(`${names[0]}, ${names[1]} and ${names[2]} like this`)
+    }
+    return console.log(`${names[0]}, ${names[1]} and ${names.length - 2} others like this`)
 }
 
-findEvenIndex([1,100,50,-51,1,1])
+likes(["Max", "John", "Alex", "Jacob", "Mark", "Max"])
