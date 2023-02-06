@@ -686,3 +686,46 @@ function likes(names) {
 }
 
 likes(["Max", "John", "Alex", "Jacob", "Mark", "Max"])
+
+/* 
+Make a program that filters a list of strings and returns a list with only your friends name in it.
+
+If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, you can be sure he's not...
+
+Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
+
+i.e.
+
+friend ["Ryan", "Kieran", "Mark"] `shouldBe` ["Ryan", "Mark"]
+
+Note: keep the original order of the names in the output.
+*/
+
+function friend(friends){
+    let newArr = []
+    friends.map(elem =>{
+        if(elem.length === 4){newArr.push(elem)}
+    })
+    return newArr
+}
+
+friend(["Ryan", "Kieran", "Mark"])
+
+/* 
+Your classmates asked you to copy some paperwork for them. You know that there are 'n' classmates and the paperwork has 'm' pages.
+
+Your task is to calculate how many blank pages do you need. If n < 0 or m < 0 return 0.
+Example:
+
+n= 5, m=5: 25
+n=-5, m=5:  0
+*/
+
+function paperwork(n, m) {
+    if(n < 0 || m < 0){
+      return 0
+    }
+    return n * m
+}
+
+paperwork(2, 3)
