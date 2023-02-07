@@ -729,3 +729,68 @@ function paperwork(n, m) {
 }
 
 paperwork(2, 3)
+
+/* 
+In a factory a printer prints labels for boxes. For one kind of boxes the printer has to use colors which, for the sake of simplicity, are named with letters from a to m.
+
+The colors used by the printer are recorded in a control string. For example a "good" control string would be aaabbbbhaijjjm meaning that the printer used three times color a, four times color b, one time color h then one time color a...
+
+Sometimes there are problems: lack of colors, technical malfunction and a "bad" control string is produced e.g. aaaxbbbbyyhwawiwjjjwwm with letters not from a to m.
+
+You have to write a function printer_error which given a string will return the error rate of the printer as a string representing a rational whose numerator is the number of errors and the denominator the length of the control string. Don't reduce this fraction to a simpler expression.
+
+The string has a length greater or equal to one and contains only letters from ato z.
+Examples:
+
+s="aaabbbbhaijjjm"
+printer_error(s) => "0/14"
+
+s="aaaxbbbbyyhwawiwjjjwwm"
+printer_error(s) => "8/22"
+*/
+
+function printerError(s) {
+    let counter = 0
+    for(let i = 0; i < s.length; i++){
+        if(s[i].match(/[n-z]/)){
+            counter++
+        }
+    }
+    return `${counter}/${s.length}`
+}
+
+printerError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmyz")
+
+/* 
+Let's play! You have to return which player won! In case of a draw return Draw!.
+
+Examples(Input1, Input2 --> Output):
+
+"scissors", "paper" --> "Player 1 won!"
+"scissors", "rock" --> "Player 2 won!"
+"paper", "paper" --> "Draw!"
+*/
+
+const rps = (p1, p2) => {
+    if(p1 === p2){
+        return "Draw!"
+    }
+    if((p1 === 'rock' && p2 === 'scissors') || (p1 === 'scissors' && p2 === 'paper') || (p1 === 'paper' && p2 === 'rock')){
+        return "Player 1 won!"
+    }
+    if((p2 === 'rock' && p1 === 'scissors') || (p2 === 'scissors' && p1 === 'paper') || (p2 === 'paper' && p1 === 'rock')){
+        return "Player 2 won!"
+    }
+};
+
+rps("rock", "rock")
+
+/* 
+Code as fast as you can! You need to double the integer and return it.
+*/
+
+function doubleInteger(i) {
+    return i * 2;
+}
+
+doubleInteger(2)
