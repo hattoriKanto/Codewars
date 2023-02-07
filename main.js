@@ -794,3 +794,94 @@ function doubleInteger(i) {
 }
 
 doubleInteger(2)
+
+/* 
+Consider an array/list of sheep where some sheep may be missing from their place. We need a function that counts the number of sheep present in the array (true means present).
+
+For example,
+
+[true,  true,  true,  false,
+  true,  true,  true,  true ,
+  true,  false, true,  false,
+  true,  false, false, true ,
+  true,  true,  true,  true ,
+  false, false, true,  true]
+
+The correct answer would be 17.
+
+Hint: Don't forget to check for bad values like null/undefined
+*/
+
+function countSheeps(arrayOfSheep) {
+    let counter = 0
+    arrayOfSheep.map(elem =>{
+        if(elem === true){
+            counter++
+        }
+    })
+    return counter
+}
+
+countSheeps([true,  true,  true,  false,
+    true,  null,  undefined,  true ,
+    true,  false, null,  false,
+    true,  false, false, true ,
+    true,  true,  true,  true ,
+    false, false, true,  true])
+
+/* 
+As the name may already reveal, it works basically like a Fibonacci, but summing the last 3 (instead of 2) numbers of the sequence to generate the next. And, worse part of it, regrettably I won't get to hear non-native Italian speakers trying to pronounce it :(
+
+So, if we are to start our Tribonacci sequence with [1, 1, 1] as a starting input (AKA signature), we have this sequence:
+
+[1, 1 ,1, 3, 5, 9, 17, 31, ...]
+
+But what if we started with [0, 0, 1] as a signature? As starting with [0, 1] instead of [1, 1] basically shifts the common Fibonacci sequence by once place, you may be tempted to think that we would get the same sequence shifted by 2 places, but that is not the case and we would get:
+
+[0, 0, 1, 1, 2, 4, 7, 13, 24, ...]
+
+Well, you may have guessed it by now, but to be clear: you need to create a fibonacci function that given a signature array/list, returns the first n elements - signature included of the so seeded sequence.
+
+Signature will always contain 3 numbers; n will always be a non-negative number; if n == 0, then return an empty array (except in C return NULL) and be ready for anything else which is not clearly specified ;)
+*/
+
+function tribonacci(signature,n){
+    if(n <= 0 || typeof(n) != 'number'){
+        console.log([])
+        return []
+    }
+    signature.map(elem =>{
+        if(typeof(signature[elem]) != 'number'){
+            console.log([])
+            return []
+        }
+    })
+    if(n > 0 && n <= 3){
+        signature.length = n
+        console.log(signature)
+        return signature
+    }
+    let counter = 0
+    let newArr = []
+    let newNum = 0
+    newArr.push(signature[0], signature[1], signature[2])
+    for(let i = 0, j = 0; i < n - 1; i++){
+        console.log(`i: ${i}`)
+        newNum += newArr[i]
+        counter ++
+        if(counter === 3){
+            newArr.push(newNum)
+            counter = 0
+            j++
+            i = j - 1
+            newNum = 0
+            console.log(`New i: ${j}`)
+            console.log(`j: ${j}`)
+        }
+        console.log(`newNum: ${newNum}`)
+    }
+    console.log(newArr)
+    return newArr
+}
+
+tribonacci([3,2,1], 5)
