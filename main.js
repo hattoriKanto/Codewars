@@ -885,3 +885,16 @@ function tribonacci(signature,n){
 }
 
 tribonacci([3,2,1], 5)
+
+/* 
+Complete the solution so that it reverses the string passed into it.
+
+'world'  =>  'dlrow'
+'word'   =>  'drow'
+*/
+
+function solution(str){
+    return str.split('').reverse().join('')
+}
+
+solution('Hello')
