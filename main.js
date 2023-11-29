@@ -898,3 +898,180 @@ function solution(str){
 }
 
 solution('Hello')
+
+/*
+In English, all words at the begining of a sentence should begin with a capital letter.
+
+You will be given a paragraph that does not use capital letters. Your job is to capitalise the first letter of the first word of each sentence.
+
+For example,
+
+input:
+
+"hello. my name is inigo montoya. you killed my father. prepare to die."
+
+output:
+
+"Hello. My name is inigo montoya. You killed my father. Prepare to die."
+
+You may assume:
+
+    there will be no punctuation besides full stops and spaces
+
+    all but the last full stop will be followed by a space and at least one word
+*/
+
+function fix(paragraph){
+    if(paragraph.length === 0){
+        return '';
+    };
+  
+    let newStr = paragraph[0].toUpperCase();
+
+    for(let i = 1; i < paragraph.length; i++){
+        if(paragraph[i - 1] === ' ' && paragraph[i - 2] === '.'){
+            newStr += paragraph[i].toUpperCase();
+        }else{
+            newStr += paragraph[i];
+        };
+    };
+
+    return newStr;
+};
+
+fix("hello. my name is inigo montoya. you killed my father. prepare to die.");
+
+/*
+ Given a string str, reverse it and omit all non-alphabetic characters.
+Example
+
+For str = "krishan", the output should be "nahsirk".
+
+For str = "ultr53o?n", the output should be "nortlu".
+Input/Output
+
+    [input] string str
+
+A string consists of lowercase latin letters, digits and symbols.
+
+    [output] a string
+*/
+
+function reverseLetter(str) {
+    let newStr = '';
+    
+    for(let i = str.length - 1; i >= 0; i--){
+        if(str[i].toLowerCase() !== str[i].toUpperCase()){
+            newStr += str[i];
+        };
+    };
+
+    return newStr;
+};
+
+reverseLetter('ultr53o?n');
+
+/*
+Given a string, you have to return a string in which each character (case-sensitive) is repeated once.
+Examples (Input -> Output):
+
+* "String"      -> "SSttrriinngg"
+* "Hello World" -> "HHeelllloo  WWoorrlldd"
+* "1234!_ "     -> "11223344!!__  "
+
+Good Luck!
+*/
+
+function doubleChar(str) {
+  let newStr = '';
+
+  for(let i = 0; i < str.length; i++){
+    newStr += str[i] + str[i];
+  };
+  
+  return newStr;
+};
+
+doubleChar('String');
+
+/*
+Triple Trouble
+
+Create a function that will return a string that combines all of the letters of the three inputed strings in groups. Taking the first letter of all of the inputs and grouping them next to each other. Do this for every letter, see example below!
+
+E.g. Input: "aa", "bb" , "cc" => Output: "abcabc"
+
+Note: You can expect all of the inputs to be the same length.
+*/
+
+function tripleTrouble(one, two, three){
+  let newStr = '';
+
+  for(let i = 0; i < one.length; i++){
+    newStr += one[i] + two[i] + three[i];
+  };
+
+  return newStr;
+};
+
+tripleTrouble("aa", "bb" , "cc");
+
+/*
+This is a spin off of my first kata.
+
+You are given a string containing a sequence of character sequences separated by commas.
+
+Write a function which returns a new string containing the same character sequences except the first and the last ones but this time separated by spaces.
+
+If the input string is empty or the removal of the first and last items would cause the resulting string to be empty, return an empty value (represented as a generic value NULL in the examples below).
+Examples
+
+"1,2,3"      =>  "2"
+"1,2,3,4"    =>  "2 3"
+"1,2,3,4,5"  =>  "2 3 4"
+
+""     =>  NULL
+"1"    =>  NULL
+"1,2"  =>  NULL
+*/
+
+function array(string) {
+    const array = string.replaceAll(',', ' ').split(' ');
+
+    if(array.length <= 2){
+        return null;
+    };
+
+    const newString = array.slice(1, -1).join(' ');
+
+    return newString;
+};
+
+array('1,2,3,4');
+
+/*
+You probably know that number 42 is "the answer to life, the universe and everything" according to Douglas Adams' "The Hitchhiker's Guide to the Galaxy". For Freud, the answer was quite different...
+
+In the society he lived in, people - women in particular - had to repress their sexual needs and desires. This was simply how the society was at the time. Freud then wanted to study the illnesses created by this, and so he digged to the root of their desires. This led to some of the most important psychoanalytic theories to this day, Freud being the father of psychoanalysis.
+
+Now, basically, when a person hears about Freud, s/he hears "sex" because for Freud, everything was related to, and explained by sex.
+
+In this kata, the function will take a string as its argument, and return a string with every word replaced by the explanation to everything, according to Freud. Note that an empty string, or no arguments, should return an empty string.
+*/
+
+function toFreud(string) {
+    if(string.length === 0){
+      return ''
+    };
+  
+    const array = string.split(' ');
+    let newString = '';
+
+    for(let i = 0; i < array.length; i++){
+        newString += 'sex' + ' ';
+    };
+      
+    return newString.trimRight();
+};
+
+toFreud('This was simply how the society was at the time');
